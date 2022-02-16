@@ -5,8 +5,13 @@ import re
 tuna_map ={}
 debug = 1
 logMeFile = ""
-#def logme(log_string):
-    
+
+def logme(log_string,fd):
+    if debug == 1:
+        print (log_string, file=fd)
+    else:
+        print (log_string)
+
 
 def trim(got_string):
     got_string = re.sub(r"\s+","",got_string)
@@ -34,11 +39,16 @@ def get_params(got_the_list):
 #Get all the parameters from file here:
 def main():
     if debug == 1:
-       open()
-       exit(0)
+       try:
+           fd = open("elahi.log", "a")
+           logme("Hello into logme file elahi.txt",fd)
+       except IOError:
+           print ("Error in opeaning logfile exiting")
+           exit(0)
     list_of_params = ["logFile=logs.txt\n","c=d\n","e=f\n"]	
     get_params(list_of_params)
     logMeFile = tuna_map ["logFile"];
     print (logMeFile)
+
 if __name__ == "__main__":
-   main()
+    main()
