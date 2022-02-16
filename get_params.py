@@ -5,7 +5,7 @@ import re
 tuna_map ={}
 debug = 1
 logMeFile = ""
-def logme(log_string):
+#def logme(log_string):
     
 
 def trim(got_string):
