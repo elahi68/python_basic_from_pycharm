@@ -11,8 +11,14 @@ dfile.close()
 ln = int(0)
 for dline in dlines:
     ln=0;
+    m = 0;
+    print ('dn whcih is currently looking for : ',dline);
     for line in lines:
         ln = ln + 1
         match = re.findall(line, dline)
         if(len(match)):
-            print("Matched with regex : ",ln," : ",dline," : ",line)
+            m = m+1;
+            print(m," match with regex : ",ln," : ",dline," : ",line)
+    if m == 0:
+        print("No matching regex found for given dn")
+    m = 0;
